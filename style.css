@@ -1,0 +1,165 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(29, 182, 187);
+    font-family: sans-serif;
+}
+
+#container {
+    position: relative;
+    height: 100vh;
+    width: 40%;
+    left: 30%;
+    background-color: #292929;
+    overflow: hidden;
+}
+
+/*Styling the Road Surface Markings*/
+.line_1,
+.line_2,
+.line_3,
+.line_4 {
+    position: absolute;
+    height: 200px;
+    width: 4%;
+    margin-left: 48%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.line_1 {
+    top: -150px;
+}
+
+.line_2 {
+    top: 145px;
+}
+
+.line_3 {
+    top: 440px;
+}
+
+.line_4 {
+    top: 735px;
+}
+
+.line_5,
+.line_6 {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: red;
+}
+
+.line_6 {
+    margin-left: 98%;
+}
+
+/*Styling the cars*/
+.car {
+    position: absolute;
+    height: 60px;
+    width: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 8px 0px black;
+}
+
+#car {
+    bottom: 8%;
+    left: 60%;
+}
+
+
+#car_1 {
+    top: -100px;
+    left: 60%;
+    border-radius: 20px;
+}
+
+#car_2 {
+    top: -200px;
+    left: 40%;
+    border-radius: 20px;
+}
+
+#car_3 {
+    top: -350px;
+    left: 50%;
+    border-radius: 20px;
+}
+
+#car_4 {
+    top: -450px;
+    left: 50%;
+    border-radius: 20px;
+}
+
+img {
+    width: 70x; 
+    height: 120px;
+}
+
+/*Styling the Restart feature*/
+#restart_div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #292929;
+    color: white;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-align: center;
+    display: none;
+}
+
+/*Text on the restart button*/
+#restart {
+    border: none;
+    padding: 25px;
+    color: white;
+    background-color: #8a64ff;
+    font-size: 30px;
+    margin-top: 30%;
+}
+
+.small_text {
+    font-size: 15px;
+}
+
+/*Styling the score board*/
+#score {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 10%;
+    font-size: 35px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+    box-shadow: 4px 4px 0px 1px #808080;
+}
+
+.return {
+    position: absolute;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: red;
+    background-color: rgb(235, 235, 34);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    top: 1%;
+    left: 1%;
+}
+
+.return:hover {
+    background-color: #3e8e41
+}
+
+.return:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
