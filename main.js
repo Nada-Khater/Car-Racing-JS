@@ -85,7 +85,7 @@ function car_down(car) {
         var car_left = parseInt(Math.random() * (container_width - car_width - line_width_l));
         car.setAttribute('style',`left:${car_left}`);
     }
-    car.setAttribute('style',`top:${car_current_top + speed}`);
+    car.setAttribute('style',`top:${car_current_top + speed}px`);
 }
 
 function line_down(line) {
@@ -93,7 +93,7 @@ function line_down(line) {
     if (line_current_top > container_height) {
         line_current_top = -200;
     }
-    line.setAttribute('style',`top:${line_current_top + line_speed}`);
+    line.setAttribute('style',`top:${line_current_top + line_speed}px`);
 }
 
 // collision function to be added later
