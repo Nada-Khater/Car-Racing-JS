@@ -144,9 +144,9 @@ function car_down(car) {
         car_current_top = -200;
         // asign new left property to the car so that it gets a new position with every tine it gets in the canvas
         var car_left = parseInt(Math.random() * (container_width - car_width - line_width_l));
-        car.setAttribute('style',`left:${car_left}`);
+        car.style.left = `${car_left}px`;
     }
-    car.setAttribute('style',`top:${car_current_top + speed}px`);
+    car.style.top = `${car_current_top + speed}px`;
 }
 
 function line_down(line) {
@@ -154,7 +154,7 @@ function line_down(line) {
     if (line_current_top > container_height) {
         line_current_top = -200;
     }
-    line.setAttribute('style',`top:${line_current_top + line_speed}px`);
+    line.style.top = `${line_current_top + line_speed}px`;
 }
 
 // collision function to be added later
