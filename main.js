@@ -39,6 +39,53 @@ var game_over = false,
     move_down = false;
 
 /********************************************\\ Car Movements Keys //********************************************/
+
+//keyboard EventListener  using arrow keys 
+// while you press down the key
+document.addEventListener('keydown', function (e) {
+    //check if isnot  game over so the car can move 
+    if (!game_over) {
+        var key = e.key;
+        if (key === 'ArrowLeft' && !move_left) {
+            //update car move to left
+            move_left = requestAnimationFrame(ArrowLeft);
+        } else if (key === 'ArrowRight' && !move_right) {
+            //update car move to right
+            move_right = requestAnimationFrame(ArrowRight);
+        } else if (key === 'ArrowUp' && !move_up) {
+            //update car move to up 
+            move_up = requestAnimationFrame(ArrowUp);
+        } else if (key === 'ArrowDown' && !move_down) {
+            //update car move to down
+            move_down = requestAnimationFrame(ArrowDown);
+        }
+    }
+});
+
+//if you dont press the key , cancel animation 
+document.addEventListener('keyup', function (e) {
+    if (!game_over) {
+        var key = e.key;
+        if (key === 'ArrowLeft') {
+            // prevent car to move to left
+            cancelAnimationFrame(move_left);
+            move_left = false;
+        } else if (key === 'ArrowRight') {
+             // prevent car to move to right
+            cancelAnimationFrame(move_right);
+            move_right = false;
+        } else if (key === 'ArrowUp' ) {
+             // prevent car to move to up
+            cancelAnimationFrame(move_up);
+            move_up = false;
+        } else if (key ===  'ArrowDown') {
+             // prevent car to move to down
+            cancelAnimationFrame(move_down);
+            move_down = false;
+        }
+    }
+});
+
 // Move the car to the left
 function ArrowLeft() {
     // Check if the game is not over and the car is within the left boundary
