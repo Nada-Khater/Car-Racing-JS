@@ -2,7 +2,8 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: rgb(29, 182, 187);
+    /* background-color: rgb(29, 182, 187); */
+    background: linear-gradient(to bottom right,#a6bfe5,#eaf8ac, #6c9ade, #aef7ac);
     font-family: sans-serif;
 }
 
