@@ -75,22 +75,18 @@ body {
 }
 
 #car_2 {
-    top: -200px;
+    top: -230px;
     left: 40%;
 }
 
 #car_3 {
-    top: -350px;
+    top: -360px;
     left: 50%;
 }
 
-#car_4 {
-    top: -450px;
-    left: 50%;
-}
 
 img {
-    width: 70px; 
+    width: 50px; 
 }
 
 /*Styling the Restart feature*/
