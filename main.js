@@ -141,7 +141,7 @@ function ArrowUp() {
     // Check if the game is not over and the car is above a certain top threshold
     if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) > 10) {
         // Calculate the new top position
-        const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) - 3;
+        const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) - 5;
         
         // Set the new top position to the car's style
         car.style.top = newTop + 'px';
@@ -156,7 +156,7 @@ function ArrowDown() {
     // Check if the game is not over and the car is below a certain bottom threshold
     if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) < container_height - car_height - 5) {
         // Calculate the new top position
-        const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) + 3;
+        const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) + 5;
         
         // Set the new top position to the car's style
         car.style.top = newTop + 'px';
