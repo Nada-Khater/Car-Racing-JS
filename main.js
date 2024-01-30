@@ -28,9 +28,10 @@ var container_left = parseInt(window.getComputedStyle(container).getPropertyValu
     line_width_r = parseInt(window.getComputedStyle(line_6).getPropertyValue('width'));
     
 class sound {
-    constructor(src) {
+    constructor(src,repeat = false) {
         this.sound = document.createElement("audio");
         this.sound.src = src;
+        repeat && this.sound.setAttribute("loop","true");
         this.sound.setAttribute("preload", "auto");
         this.sound.setAttribute("controls", "none");
         this.sound.style.display = "none";
@@ -44,7 +45,7 @@ class sound {
     }
 }
     
-const engine_sound = new sound("./assets/sounds/engine.wav");
+const engine_sound = new sound("./assets/sounds/engine.wav",true);
 const crash_sound  = new sound("./assets/sounds/crash.wav");
 
 //some other declarations
