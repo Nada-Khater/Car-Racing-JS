@@ -134,7 +134,7 @@ function ArrowUp() {
 // Move the car downward
 function ArrowDown() {
     // Check if the game is not over and the car is below a certain bottom threshold
-    if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) < container_height - car_height - 10) {
+    if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) < container_height - car_height - 5) {
         // Calculate the new top position
         const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) + 3;
         

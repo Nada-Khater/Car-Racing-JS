@@ -59,15 +59,14 @@ body {
 /*Styling the cars*/
 .car {
     position: absolute;
-    height: 60px;
-    width: 40px;
+    height: 120px;
+    width: 56px;
     border-radius: 20px;
-    box-shadow: 0px 1px 8px 0px black;
 }
 
 #car {
     bottom: 8%;
-    left: 60%;
+    left: 45%;
 }
 
 
