@@ -204,14 +204,104 @@ function line_down(line) {
     line.style.top = `${line_current_top + line_speed}px`;
 }
 
-// collision function to be added later
-function isCollided(car1,car2)
-{
 
+
+
+// =======================================
+// 1. Check the collision between two cars
+// 2. Criteria for stopping the game 
+// 3. Handling the Restart Button
+// 4. Scores Handling Methods
+// =======================================
+
+
+// 1. Check the collision between two cars
+
+function isCollided(div1, div2) 
+{
+    var car1 = div1.getBoundingClientRect();
+    var car2 = div2.getBoundingClientRect();
+
+    /*
+        If the bottom of the first car is above the top of the second car (car1.bottom < car2.top).
+        If the top of the first car is below the bottom of the second car (car1.top > car2.bottom).
+        If the right of the first car is to the left of the left of the second car (car1.right < car2.left).
+        If the left of the first car is to the right of the right of the second car (car1.left > car2.right).
+    */
+
+    if (car1.bottom < car2.top || car1.top > car2.bottom || car1.right < car2.left || car1.left > car2.right)
+        return false;
+
+    return true;
 }
 
-// stopTheGame function to be added later
-function stopTheGame()
-{
 
+// 2. Criteria for stopping the game 
+
+function stopTheGame() 
+{
+    // change game_over to true to be recognized by repeat() method to stop rendering.
+    game_over = true;
+
+    // add the achieved score at the local storage.
+    addNewScore(score);
+
+    // cancel all animations.
+    cancelAnimationFrame(anim_id);
+    cancelAnimationFrame(move_up);
+    cancelAnimationFrame(move_down);
+    cancelAnimationFrame(move_right);
+    cancelAnimationFrame(move_left);
+
+    // display the restart div.
+    restart_div.style.display = 'block';
+    restart_btn.focus();
+}
+
+
+// 3. Handling the Restart Button
+
+restart_btn.addEventListener('click', function () 
+{
+    // reset game state to start a new game.
+    game_over = false;
+
+    // hide the restart_div again.
+    restart_div.style.display = 'none';
+
+    // reload the game page.
+    location.reload();
+});
+
+
+// 4. Scores Handling Methods
+
+function addNewScore(score) 
+{
+    // get the existing scores from the local storage (if any).
+    const existingScores = JSON.parse(localStorage.getItem('carRacingScores')) || [];
+
+    // append the new score.
+    existingScores.push(score.innerText);
+
+    // save the scores back to the local storage.
+    localStorage.setItem('carRacingScores', JSON.stringify(existingScores));
+}
+
+function getScores() 
+{
+    // retrieve the scores from the local storage.
+    const scores = JSON.parse(localStorage.getItem('carRacingScores')) || [];
+
+    return scores;
+}
+
+function clearScores() 
+{
+    // check if there is a carRacingScores object stored in the local storage before deletion.
+    if (!localStorage.getItem('carRacingScores'))
+        return;
+
+    // clear the carRacingScores object.
+    localStorage.removeItem('carRacingScores');
 }
