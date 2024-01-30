@@ -26,7 +26,27 @@ var container_left = parseInt(window.getComputedStyle(container).getPropertyValu
     car_height = parseInt(window.getComputedStyle(car).getPropertyValue('height')),
     line_width_l = parseInt(window.getComputedStyle(line_5).getPropertyValue('width')),
     line_width_r = parseInt(window.getComputedStyle(line_6).getPropertyValue('width'));
-
+    
+class sound {
+    constructor(src,repeat = false) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        repeat && this.sound.setAttribute("loop","true");
+        this.sound.setAttribute("preload", "auto");
+        this.sound.setAttribute("controls", "none");
+        this.sound.style.display = "none";
+        document.body.appendChild(this.sound);
+        this.play = function () {
+            this.sound.play();
+        };
+        this.stop = function () {
+            this.sound.pause();
+        };
+    }
+}
+    
+const engine_sound = new sound("./assets/sounds/engine.wav",true);
+const crash_sound  = new sound("./assets/sounds/crash.wav");
 
 //some other declarations
 var game_over = false,
@@ -148,6 +168,7 @@ function ArrowDown() {
 
 
 anim_id = requestAnimationFrame(repeat);
+engine_sound.play();
 
 function repeat() {
     // check if the player does'nt lose the game
@@ -155,6 +176,8 @@ function repeat() {
         // check collision between the player car and the three coming cars
         if (isCollided(car, car_1) || isCollided(car, car_2) || isCollided(car, car_3)) {
             // cancel animation and view and overlay div
+            engine_sound.stop();
+            crash_sound.play();
             stopTheGame();
         }
         // increase the score counter with every animation refresh

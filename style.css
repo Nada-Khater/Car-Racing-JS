@@ -61,7 +61,6 @@ body {
     position: absolute;
     height: 120px;
     width: 56px;
-    border-radius: 20px;
 }
 
 #car {
@@ -73,30 +72,21 @@ body {
 #car_1 {
     top: -100px;
     left: 60%;
-    border-radius: 20px;
 }
 
 #car_2 {
-    top: -200px;
+    top: -230px;
     left: 40%;
-    border-radius: 20px;
 }
 
 #car_3 {
-    top: -350px;
+    top: -360px;
     left: 50%;
-    border-radius: 20px;
 }
 
-#car_4 {
-    top: -450px;
-    left: 50%;
-    border-radius: 20px;
-}
 
 img {
-    width: 70x; 
-    height: 120px;
+    width: 50px; 
 }
 
 /*Styling the Restart feature*/
