@@ -2,11 +2,8 @@ body {
     height: 100vh;
     width: 100%;
     margin: 0;
-    /* background-color: rgb(29, 182, 187); */
-    background: linear-gradient(to bottom right,#a6bfe5,#eaf8ac, #6c9ade, #aef7ac);
-    /* background-image: url(./assets/images/bg.webp);
-    background-repeat: no-repeat;
-    background-size:cover ; */
+    background-image: url('./assets/images/2.jpg');
+    background-size: cover;
 }
 
 #container {
@@ -108,8 +105,8 @@ img {
 #restart {
     border: none;
     padding: 25px;
-    color: white;
-    background-color: #8a64ff;
+    color: whitesmoke;
+    background-color: #8a4f25b9; 
     font-size: 30px;
     margin-top: 30%;
 }
@@ -118,40 +115,46 @@ img {
     font-size: 15px;
 }
 
+
 /*Styling the score board*/
 #score {
     position: absolute;
-    margin-top: 20%;
-    margin-left: 10%;
-    font-size: 35px;
-    background-color: white;
-    color: #454545;
-    padding: 10px;
-    box-shadow: 4px 4px 0px 1px #808080;
+    font-size: 1.55rem;
+    color: #fdf332;
+    padding: 1rem 3rem;
+    box-shadow: 0 0 20px #58758b53;
+    background: linear-gradient(to right, #212121, #024354);
+    transition: background 0.3s ease;
+    border: none;
+    border-radius: 1rem;
+    top: 2%;
+    left: 12%;
 }
 
 .return {
     position: absolute;
-    padding: 15px 25px;
-    font-size: 24px;
+    padding: 1rem 2rem;
+    font-family: 'Luckiest Guy';
+    font-size: 1.55rem;
     text-align: center;
     cursor: pointer;
     outline: none;
-    color: red;
-    background-color: rgb(235, 235, 34);
+    color: #fdf332;
+    transition: background 0.3s ease;
+    background: linear-gradient(to right, #212121, #024354);
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    top: 1%;
-    left: 1%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #58758b53;
+    top: 2%;
+    left: 4%;
 }
 
 .return:hover {
-    background-color: #3e8e41
+    background: linear-gradient(to left, #273c4b, #024354);
 }
 
 .return:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: linear-gradient(to left, #273c4b, #024354);
+    box-shadow:0 0 20px #58758b53;
     transform: translateY(4px);
 }
