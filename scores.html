@@ -1,202 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Score History</title>
 
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-      body {
-        font-family: Arial, sans-serif;
-        background-image: url("./assets/images/black-sports-car-with-grunge-600nw-671302684.webp");
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Score History</title>
 
-      h1 {
-        text-align: center;
-      }
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("./assets/images/black-sports-car-with-grunge-600nw-671302684.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-      th,
-      td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
+    h1 {
+      text-align: center;
+    }
 
-      tr:hover {
-        background-color: #f5f5f5;
-      }
-      div {
-        width: 50%;
-        margin: auto;
-      }
-      body {
-        font-family: "Press Start 2P", cursive;
-        background-color: #333;
-        color: #fff;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-      .menu-container {
-        text-align: center;
-      }
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
 
-      .game-title {
-        font-size: 36px;
-        margin-bottom: 20px;
-      }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
 
-      .menu-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+    div {
+      width: 50%;
+      margin: auto;
+    }
 
-      .menu-list li {
-        margin: 10px 0;
-      }
+    body {
+      font-family: "Press Start 2P", cursive;
+      background-color: #333;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-      .menu-list a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 24px;
-        padding: 10px 20px;
-        border: 2px solid #fff;
-        border-radius: 5px;
-        display: inline-block;
-        transition: background-color 0.3s;
-      }
+    .menu-container {
+      text-align: center;
+    }
 
-      .menu-list a:hover {
-        background-color: #555;
-      }
+    .game-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
 
-      button {
-        font-family: "Press Start 2P", cursive;
-        text-decoration: none;
-        color: #000000b7;
-        font-size: 12px;
-        padding: 10px 20px;
-        border: 2px solid #fff8f8;
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        display: inline-block;
-      }
-      h1 {
-        text-align: center;
-      }
+    .menu-list li {
+      margin: 10px 0;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
+    .menu-list a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px 20px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
 
-      th,
-      td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
+    .menu-list a:hover {
+      background-color: #555;
+    }
 
-      tr:hover {
-        background-color: #f5f5f549;
-      }
+    button {
+      font-family: "Press Start 2P", cursive;
+      text-decoration: none;
+      color: #000000b7;
+      font-size: 12px;
+      padding: 10px 20px;
+      border: 2px solid #fff8f8;
 
-      #highest-score-container {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 30px;
-      }
-      #score-history-container {
-        width: 400px;
-        max-height: 300px;
-        overflow-y: auto;
-      }
+      display: inline-block;
+    }
 
-      #clear-message {
-        text-align: center;
-        margin-top: 20px;
-      }
-      #content-title {
-        background-color: transparent;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="menu-container">
-      <h1 class="game-title" id="menu-title">Menu</h1>
-      <ul class="menu-list">
-        <li><a href="#" id="score-history">Score History</a></li>
-        <li><a href="#" id="highest-score">Highest Score</a></li>
-        <li><a href="#" id="clear-history">Clear History</a></li>
-      </ul>
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+      background-color: #f5f5f549;
+    }
+
+    #highest-score-container {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 30px;
+    }
+
+    #score-history-container {
+      width: 400px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    #clear-message {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #content-title {
+      background-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container">
+    <h1 class="game-title" id="menu-title">Menu</h1>
+    <ul class="menu-list">
+      <li><a href="#" id="score-history">Score History</a></li>
+      <li><a href="#" id="highest-score">Highest Score</a></li>
+      <li><a href="#" id="clear-history">Clear History</a></li>
+      <li><a href="#" id="back">Back</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <h1 id="content-title"></h1>
+    <div id="score-history-container">
+      <table id="score-table"></table>
     </div>
 
-    <div>
-      <h1 id="content-title"></h1>
-      <div id="score-history-container">
-        <table id="score-table"></table>
-      </div>
+    <div id="highest-score-container"></div>
 
-      <div id="highest-score-container"></div>
+    <div id="clear-message">
 
-      <div id="clear-message">
-        
-      </div>
     </div>
-    <script src="./main.js"></script>
-    <script>
-      document
-        .getElementById("score-history")
-        .addEventListener("click", function () {
-          updateContent("Score History", "table");
-        });
+  </div>
+  <script src="./main.js"></script>
+  <script>
+    document
+      .getElementById("score-history")
+      .addEventListener("click", function () {
+        updateContent("Score History", "table");
+      });
 
-      document
-        .getElementById("highest-score")
-        .addEventListener("click", function () {
-          updateContent("Highest Score", "highest");
-        });
+    document
+      .getElementById("highest-score")
+      .addEventListener("click", function () {
+        updateContent("Highest Score", "highest");
+      });
 
-      document
-        .getElementById("clear-history")
-        .addEventListener("click", function () {
-          updateContent("Clear History", "clear");
-        });
+    document
+      .getElementById("clear-history")
+      .addEventListener("click", function () {
+        updateContent("Clear History", "clear");
+      });
 
-      function updateContent(title, content) {
-        document.getElementById("content-title").innerText = title;
+    document
+      .getElementById("back")
+      .addEventListener("click", function () {
+        location.href = "index.html";
+      });
 
-        // Hide all content sections
-        document.getElementById("score-table").style.display = "none";
+    function updateContent(title, content) {
+      document.getElementById("content-title").innerText = title;
+
+      // Hide all content sections
+      document.getElementById("score-table").style.display = "none";
+      document.getElementById("highest-score-container").style.display =
+        "none";
+      document.getElementById("clear-message").style.display = "none";
+
+      // Show the selected content section
+      if (content === "table") {
+        document.getElementById("score-table").style.display = "table";
+        showScoresInsideTable();
+      } else if (content === "highest") {
         document.getElementById("highest-score-container").style.display =
-          "none";
-        document.getElementById("clear-message").style.display = "none";
-
-        // Show the selected content section
-        if (content === "table") {
-          document.getElementById("score-table").style.display = "table";
-          showScoresInsideTable();
-        } else if (content === "highest") {
-          document.getElementById("highest-score-container").style.display =
-            "block";
-          showHighScore();
-        } else if (content === "clear") {
-          document.getElementById("clear-message").style.display = "block";
-          clearScoreMessage();
-        }
+          "block";
+        showHighScore();
+      } else if (content === "clear") {
+        document.getElementById("clear-message").style.display = "block";
+        clearScoreMessage();
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
