@@ -1,18 +1,19 @@
 body {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    background-image: url('./assets/images/bg.jpg');
-    background-size: cover;
+  font-family: "Press Start 2P", cursive;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-image: url("./assets/images/bg.jpg");
+  background-size: cover;
 }
 
 #container {
-    position: relative;
-    height: 100vh;
-    width: 40%;
-    left: 30%;
-    background-color: #292929;
-    overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 40%;
+  left: 30%;
+  background-color: #292929;
+  overflow: hidden;
 }
 
 /*Styling the Road Surface Markings*/
@@ -20,150 +21,151 @@ body {
 .line_2,
 .line_3,
 .line_4 {
-    position: absolute;
-    height: 200px;
-    width: 4%;
-    margin-left: 48%;
-    background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  height: 200px;
+  width: 4%;
+  margin-left: 48%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .line_1 {
-    top: -150px;
+  top: -150px;
 }
 
 .line_2 {
-    top: 145px;
+  top: 145px;
 }
 
 .line_3 {
-    top: 440px;
+  top: 440px;
 }
 
 .line_4 {
-    top: 735px;
+  top: 735px;
 }
 
 .line_5,
 .line_6 {
-    position: absolute;
-    width: 10px;
-    height: 100%;
-    background: rgb(255, 255, 255);
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background: rgb(255, 255, 255);
 }
 
 .line_6 {
-    right: 0;
+  right: 0;
 }
 
 /*Styling the cars*/
 .car {
-    position: absolute;
-    width: 35px;
-    height: 75px;
+  position: absolute;
+  width: 35px;
+  height: 75px;
 }
 
 #car {
-    bottom: 8%;
-    left: 45%;
+  bottom: 8%;
+  left: 45%;
 }
 
-
 #car_1 {
-    top: -100px;
-    left: 60%;
+  top: -100px;
+  left: 60%;
 }
 
 #car_2 {
-    top: -230px;
-    left: 40%;
+  top: -230px;
+  left: 40%;
 }
 
 #car_3 {
-    top: -360px;
-    left: 50%;
+  top: -360px;
+  left: 50%;
 }
 
-
 img {
-    width: 35px;
+  width: 35px;
 }
 
 /*Styling the Restart feature*/
 #restart_div {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #292929;
-    color: white;
-    font-family: sans-serif;
-    font-size: 40px;
-    text-align: center;
-    display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #292929;
+  color: white;
+  font-family: sans-serif;
+  font-size: 40px;
+  text-align: center;
+  display: none;
 }
 
 /*Text on the restart button*/
 #restart {
-    border: none;
-    padding: 25px;
-    color: whitesmoke;
-    background-color: #8a4f25b9; 
-    font-size: 30px;
-    margin-top: 30%;
+  font-family: "Press Start 2P", cursive;
+  border: none;
+  padding: 25px;
+  color: whitesmoke;
+  background-color: #8a4f25b9;
+  font-size: 30px;
+  margin-top: 30%;
+}
+#cur-score,
+#high-score {
+  font-size: 50%;
 }
 
 .small_text {
-    font-size: 15px;
+  font-size: 30%;
 }
-
 
 /*Styling the score board*/
 #score {
-    position: absolute;
-    font-size: 1.55rem;
-    color: #fdf332;
-    padding: 1rem 3rem;
-    box-shadow: 0 0 20px #58758b53;
-    background: linear-gradient(to right, #212121, #024354);
-    transition: background 0.3s ease;
-    border: none;
-    border-radius: 1rem;
-    top: 2%;
-    left: 12%;
+  position: absolute;
+  font-size: 1.55rem;
+  color: #fdf332;
+  padding: 1rem 3rem;
+  box-shadow: 0 0 20px #58758b53;
+  background: linear-gradient(to right, #212121, #024354);
+  transition: background 0.3s ease;
+  border: none;
+  border-radius: 1rem;
+  top: 2%;
+  left: 12%;
 }
 
 .return {
-    position: absolute;
-    padding: 1rem 2rem;
-    font-family: 'Luckiest Guy';
-    font-size: 1.55rem;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fdf332;
-    transition: background 0.3s ease;
-    background: linear-gradient(to right, #212121, #024354);
-    border: none;
-    border-radius: 1rem;
-    box-shadow: 0 0 20px #58758b53;
-    top: 2%;
-    left: 4%;
+  position: absolute;
+  padding: 1rem 2rem;
+  font-family: "Luckiest Guy";
+  font-size: 1.55rem;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fdf332;
+  transition: background 0.3s ease;
+  background: linear-gradient(to right, #212121, #024354);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #58758b53;
+  top: 2%;
+  left: 4%;
 }
 
 .return:hover {
-    background: linear-gradient(to left, #273c4b, #024354);
+  background: linear-gradient(to left, #273c4b, #024354);
 }
 
 .return:active {
-    background-color: linear-gradient(to left, #273c4b, #024354);
-    box-shadow:0 0 20px #58758b53;
-    transform: translateY(4px);
+  background-color: linear-gradient(to left, #273c4b, #024354);
+  box-shadow: 0 0 20px #58758b53;
+  transform: translateY(4px);
 }
 
 #countdown {
-    font-family: "Press Start 2P", cursive;
-    font-size: 900%; 
-    color: white;
-    text-align: center;
-    margin-top: 30%;
-    letter-spacing: 4px; /* Increase the letter spacing for a more pixelated effect */
-  }
+  font-size: 900%;
+  color: white;
+  text-align: center;
+  margin-top: 30%;
+  letter-spacing: 4px; /* Increase the letter spacing for a more pixelated effect */
+}
