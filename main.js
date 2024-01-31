@@ -1,7 +1,7 @@
 // store the request id of requestAnimationFrame function
 let anim_id;
 
-// assign DOM objects to variables
+// assign DOM objects to letiables
 const container = document.getElementById("container"),
   car = document.getElementById("car"),
   car_1 = document.getElementById("car_1"),
@@ -18,7 +18,7 @@ const container = document.getElementById("container"),
   score = document.getElementById("score");
 
 //saving some initial setup
-var container_left = parseInt(
+let container_left = parseInt(
     window.getComputedStyle(container).getPropertyValue("left")
   ),
   container_width = parseInt(
@@ -38,29 +38,16 @@ var container_left = parseInt(
     window.getComputedStyle(line_6).getPropertyValue("width")
   );
 
-class sound {
-  constructor(src, repeat = false) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    repeat && this.sound.setAttribute("loop", "true");
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function () {
-      this.sound.play();
-    };
-    this.stop = function () {
-      this.sound.pause();
-    };
-  }
-}
-
-const engine_sound = new sound("./assets/sounds/engine.wav", true);
-const crash_sound = new sound("./assets/sounds/crash.wav");
+// declare sound audo objects
+const start_counter_sound = new Audio("./assets/sounds/start_counter.wav");
+const engine_start_sound  = new Audio("./assets/sounds/engine_start.wav");
+const engine_high_sound   = new Audio("./assets/sounds/engine_high.wav");
+const engine_low_sound    = new Audio("./assets/sounds/engine_low.wav");
+const car_passed_sound    = new Audio("./assets/sounds/car_passed.wav");
+const crash_sound         = new Audio("./assets/sounds/crash.wav");
 
 //some other declarations
-var game_over = false,
+let game_over = false,
   score_counter = 1,
   speed = 5,
   line_speed = 2,
@@ -69,6 +56,23 @@ var game_over = false,
   move_up = false,
   move_down = false;
 
+
+
+// start the game
+window.onload = function(){
+  start_counter_sound.play();
+  start_counter_sound.addEventListener('ended', (event) => {
+      anim_id = requestAnimationFrame(repeat);
+      engine_start_sound.play();
+      engine_start_sound.addEventListener('ended',() => {
+        engine_high_sound.play();
+        engine_high_sound.addEventListener('ended',() => {
+          engine_low_sound.play();
+        });
+      });
+  });
+}
+
 /********************************************\\ Car Movements Keys //********************************************/
 
 //keyboard EventListener  using arrow keys
@@ -76,7 +80,7 @@ var game_over = false,
 document.addEventListener("keydown", function (e) {
   //check if isnot  game over so the car can move
   if (!game_over) {
-    var key = e.key;
+    let key = e.key;
     if (key === "ArrowLeft" && !move_left) {
       //update car move to left
       move_left = requestAnimationFrame(ArrowLeft);
@@ -96,7 +100,7 @@ document.addEventListener("keydown", function (e) {
 //if you dont press the key , cancel animation
 document.addEventListener("keyup", function (e) {
   if (!game_over) {
-    var key = e.key;
+    let key = e.key;
     if (key === "ArrowLeft") {
       // prevent car to move to left
       cancelAnimationFrame(move_left);
@@ -187,9 +191,6 @@ function ArrowDown() {
     }
 }
 
-anim_id = requestAnimationFrame(repeat);
-engine_sound.play();
-
 function repeat() {
   // check if the player does'nt lose the game
   if (game_over === false) {
@@ -199,9 +200,16 @@ function repeat() {
       isCollided(car, car_2) ||
       isCollided(car, car_3)
     ) {
-      // cancel animation and view and overlay div
-      engine_sound.stop();
+      // pause engine and car passing sound
+      car_passed_sound.pause();
+      engine_start_sound.pause();
+      engine_high_sound.pause();
+      engine_low_sound.pause();
+
+      // play the crash sound
       crash_sound.play();
+
+      // cancel animation and view and overlay div
       stopTheGame();
     }
     // increase the score counter with every animation refresh
@@ -209,12 +217,22 @@ function repeat() {
     // increase the shown score with 1 point every 20 animation refres
     if (score_counter % 20 == 0) {
       score.innerText = parseInt(score.innerText) + 1;
+      engine_low_sound.currentTime = 0;
     }
     // accelerate the movement every 500 animation refresh
     if (score_counter % 500 == 0) {
       speed++;
       line_speed++;
     }
+    
+    if(
+      parseInt(window.getComputedStyle(car_1).getPropertyValue("top")) > container_height ||
+      parseInt(window.getComputedStyle(car_2).getPropertyValue("top")) > container_height ||
+      parseInt(window.getComputedStyle(car_3).getPropertyValue("top")) > container_height
+      )
+      {
+        car_passed_sound.play();
+      }
 
     // repaint the elements with every refresh call
     car_down(car_1);
@@ -231,7 +249,7 @@ function repeat() {
 }
 
 function car_down(car) {
-  var car_current_top = parseInt(
+  let car_current_top = parseInt(
     window.getComputedStyle(car).getPropertyValue("top")
   );
   // check if the car is off the canvas
@@ -239,7 +257,7 @@ function car_down(car) {
     // relocate the car to the top of the container and shifted up 200px out of canvas
     car_current_top = -200;
     // asign new left property to the car so that it gets a new position with every tine it gets in the canvas
-    var car_left = parseInt(
+    let car_left = parseInt(
       Math.random() * (container_width - car_width - line_width_l)
     );
     car.style.left = `${car_left}px`;
@@ -248,7 +266,7 @@ function car_down(car) {
 }
 
 function line_down(line) {
-  var line_current_top = parseInt(
+  let line_current_top = parseInt(
     window.getComputedStyle(line).getPropertyValue("top")
   );
   if (line_current_top > container_height) {
@@ -267,8 +285,8 @@ function line_down(line) {
 // 1. Check the collision between two cars
 
 function isCollided(div1, div2) {
-  var car1 = div1.getBoundingClientRect();
-  var car2 = div2.getBoundingClientRect();
+  let car1 = div1.getBoundingClientRect();
+  let car2 = div2.getBoundingClientRect();
 
   /*
         If the bottom of the first car is above the top of the second car (car1.bottom < car2.top).
