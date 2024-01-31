@@ -58,6 +58,8 @@ body {
 /*Styling the cars*/
 .car {
     position: absolute;
+    width: 35px;
+    height: 75px;
 }
 
 #car {
@@ -83,7 +85,7 @@ body {
 
 
 img {
-    width: 35px; 
+    width: 35px;
 }
 
 /*Styling the Restart feature*/
