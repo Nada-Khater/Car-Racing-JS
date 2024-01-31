@@ -158,3 +158,13 @@ img {
     box-shadow:0 0 20px #58758b53;
     transform: translateY(4px);
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+#countdown {
+    font-family: "Press Start 2P", cursive;
+    font-size: 900%; 
+    color: white;
+    text-align: center;
+    margin-top: 30%;
+    letter-spacing: 4px; /* Increase the letter spacing for a more pixelated effect */
+  }

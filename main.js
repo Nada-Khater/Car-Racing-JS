@@ -56,11 +56,29 @@ let game_over = false,
   move_up = false,
   move_down = false;
 
-
-
-// start the game
-window.onload = function(){
+// 321 go counter
+window.onload = function startCountdown() {
   start_counter_sound.play();
+  var countdownElement = document.getElementById("countdown");
+  var count = 3;
+  countdownElement.innerHTML = count;
+  var counter = setInterval(function () {
+    count--;
+    if (count > 0) {
+      countdownElement.innerHTML = count;
+    } else {
+      countdownElement.innerHTML = "GO!";
+      clearInterval(counter);
+      setTimeout(function () {
+        countdownElement.style.display = "none";
+        startGame();
+      }, 1000);
+    }
+  }, 1000);
+
+}
+// start the game
+ function startGame(){
   start_counter_sound.addEventListener('ended', (event) => {
       anim_id = requestAnimationFrame(repeat);
       engine_start_sound.play();
@@ -72,6 +90,8 @@ window.onload = function(){
       });
   });
 }
+// // start the game
+
 
 /********************************************\\ Car Movements Keys //********************************************/
 
