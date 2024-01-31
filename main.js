@@ -92,10 +92,10 @@ function startGame() {
 
 /********************************************\\ Car Movements Keys //********************************************/
 
-//keyboard EventListener  using arrow keys
+//keyboard EventListener  using arrow and wsda keys
 // while you press down the key
 document.addEventListener("keydown", function (e) {
-  //check if isnot  game over so the car can move
+  //check if is not  game over so the car can move
   if (!game_over) {
     let key = e.key;
     if ((key === "ArrowLeft" || key === "a") && !move_left) {
@@ -118,19 +118,19 @@ document.addEventListener("keydown", function (e) {
 document.addEventListener("keyup", function (e) {
   if (!game_over) {
     let key = e.key;
-    if (key === "ArrowLeft") {
+    if (key === "ArrowLeft" ||key === "a" ) {
       // prevent car to move to left
       cancelAnimationFrame(move_left);
       move_left = false;
-    } else if (key === "ArrowRight") {
+    } else if (key === "ArrowRight" || key === "d") {
       // prevent car to move to right
       cancelAnimationFrame(move_right);
       move_right = false;
-    } else if (key === "ArrowUp") {
+    } else if (key === "ArrowUp" || key === "w") {
       // prevent car to move to up
       cancelAnimationFrame(move_up);
       move_up = false;
-    } else if (key === "ArrowDown") {
+    } else if (key === "ArrowDown" || key === "s") {
       // prevent car to move to down
       cancelAnimationFrame(move_down);
       move_down = false;
