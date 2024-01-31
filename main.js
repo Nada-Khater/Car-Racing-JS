@@ -101,16 +101,16 @@ document.addEventListener("keydown", function (e) {
   //check if isnot  game over so the car can move
   if (!game_over) {
     let key = e.key;
-    if (key === "ArrowLeft" && !move_left) {
+    if ((key === "ArrowLeft" ||  key === "a" ) && !move_left ) {
       //update car move to left
       move_left = requestAnimationFrame(ArrowLeft);
-    } else if (key === "ArrowRight" && !move_right) {
+    } else if ((key === "ArrowRight"   ||  key === "d" ) && !move_right) {
       //update car move to right
       move_right = requestAnimationFrame(ArrowRight);
-    } else if (key === "ArrowUp" && !move_up) {
+    } else if ((key === "ArrowUp"  ||  key === "w") && !move_up) {
       //update car move to up
       move_up = requestAnimationFrame(ArrowUp);
-    } else if (key === "ArrowDown" && !move_down) {
+    } else if ((key === "ArrowDown"  ||  key === "s") && !move_down) {
       //update car move to down
       move_down = requestAnimationFrame(ArrowDown);
     }
