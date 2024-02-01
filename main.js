@@ -60,8 +60,20 @@ initial_level_score = 100;
 stop_score_increasing = false;
 ;
 
+// Function to select the car
+function selectCar(carImage) {
+  // Hide the car selection div
+  document.getElementById("carSelection").style.display = "none";
+  
+  // Set the chosen car's image to the game screen
+  document.getElementById("car").innerHTML = `<img src="assets/images/${carImage}" />`;
+  
+  // Start count down
+  startCountdown()
+}
+
 // 321 go counter
-window.onload = function startCountdown() {
+function startCountdown() {
   start_counter_sound.play();
   var countdownElement = document.getElementById("countdown");
   var count = 3;
