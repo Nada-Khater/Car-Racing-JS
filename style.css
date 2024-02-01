@@ -144,8 +144,7 @@ img {
     left: 12%;
 }
 
-
-
+.mute,
 .return {
     position: absolute;
     padding: 1rem 2rem;
@@ -164,14 +163,22 @@ img {
     left: 4%;
 }
 
+.mute:hover,
 .return:hover {
     background: linear-gradient(to left, #273c4b, #024354);
 }
 
+.mute:active,
 .return:active {
     background-color: linear-gradient(to left, #273c4b, #024354);
     box-shadow: 0 0 20px #58758b53;
     transform: translateY(4px);
+}
+
+.mute {
+    top: 2%;
+    right: 4%;
+    left: 90%;
 }
 
 #countdown {
