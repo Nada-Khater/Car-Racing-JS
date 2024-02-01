@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
   <title>Score History</title>
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Luckiest Guy";
       background-image: url("./assets/images/black-sports-car-with-grunge-600nw-671302684.webp");
       background-repeat: no-repeat;
       background-size: cover;
+      color: whitesmoke;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
     h1 {
@@ -37,29 +43,60 @@
     }
 
     div {
-      width: 50%;
+      width: 45%;
       margin: auto;
     }
 
-    body {
-      font-family: "Press Start 2P", cursive;
-      background-color: #333;
-      color: #fff;
-      margin: 0;
-      display: flex;
+    #menu-content{
+      text-align: center;
+      width: 35rem;
+      max-width: 800px;
+      display: none;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background-color: rgba(5, 5, 5, 0.8);
+      margin-right: 12rem;
+      border-radius: 2rem;
+      border: 1px solid #7b8320;
+      box-shadow: 0 0 10px #ccd477;
     }
 
     .menu-container {
       text-align: center;
+      width: 25rem;
+      max-width: 800px;
+      position: absolute;
+      top: 10%;
+      left: 8%; 
     }
 
     .game-title {
-      font-size: 36px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+      margin-top: 3rem;
+      font-size: 6rem;
+      font-family: 'Luckiest Guy';
+      color: whitesmoke;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-shadow: 0px -6px 0 #5c6219,
+          0px -6px 0 #212121,
+          0px 6px 0 #5c6219,
+          0px 6px 0 #212121,
+          -6px 0px 0 #5c6219,
+          6px 0px 0 #5c6219,
+          -6px 0px 0 #5c6219,
+          0 19px 1px rgba(0, 0, 0, .1),
+          0 0 6px rgba(0, 0, 0, .1),
+          0 6px 3px rgba(0, 0, 0, .3),
+          0 12px 6px rgba(0, 0, 0, .2),
+          0 18px 18px rgba(0, 0, 0, .25),
+          0 24px 24px rgba(0, 0, 0, .2),
+          0 36px 36px rgba(0, 0, 0, .15);
     }
+
+    .menu-list li :hover {
+            background: linear-gradient(to left, #7b8320, #2e2c2c);
+        }
 
     .menu-list {
       list-style: none;
@@ -71,30 +108,38 @@
       margin: 10px 0;
     }
 
+    #confirm-clear,
     .menu-list a {
       text-decoration: none;
-      color: #fff;
-      font-size: 24px;
-      padding: 10px 20px;
-      border: 2px solid #fff;
-      border-radius: 5px;
       display: inline-block;
-      transition: background-color 0.3s;
+      max-width: 300px;
+      border: none;
+      cursor: pointer;
+      color: whitesmoke;
+      font-size: 1.55rem;
+      padding: 1.2rem 2.2rem;
+      border-radius: 1rem;
+      margin-bottom: 0.3rem;
+      font-family: 'Luckiest Guy';
+      box-shadow: 0 0 20px #58758b53;
+      transition: background 0.3s ease;
+      background: linear-gradient(to right, #1d1c1c, #5c6219);
     }
 
     .menu-list a:hover {
-      background-color: #555;
+      background-color: #4e4c4c;
     }
 
-    button {
-      font-family: "Press Start 2P", cursive;
+    #confirm-clear {
       text-decoration: none;
-      color: #000000b7;
-      font-size: 12px;
+      font-size: 15px;
       padding: 10px 20px;
-      border: 2px solid #fff8f8;
-
+      margin-bottom: 1rem;
       display: inline-block;
+    }
+
+    p {
+      font-size: 25px;
     }
 
     h1 {
@@ -109,7 +154,7 @@
 
     th,
     td {
-      padding: 8px;
+      padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ddd;
     }
@@ -120,9 +165,9 @@
 
     #highest-score-container {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 30px;
-   
+      margin-bottom: 1rem;
     }
 
     #score-history-container {
@@ -134,17 +179,21 @@
     #score-table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #ffffff3f;
     }
 
     #clear-message {
       text-align: center;
-      margin-top: 20px;
     }
 
     #content-title {
       background-color: transparent;
+      text-shadow: 0px 2px 28px #5c6219,
+                   0px -6px 0 #212121;
+      border: 2px solid #ccd4775e;
+      border-radius: 10px;
+      padding: 10px;
     }
+
   </style>
 </head>
 
@@ -159,7 +208,7 @@
     </ul>
   </div>
 
-  <div>
+  <div id="menu-content">
     <h1 id="content-title"></h1>
     <div id="score-history-container">
       <table id="score-table"></table>
@@ -201,6 +250,7 @@
       document.getElementById("content-title").innerText = title;
 
       // Hide all content sections
+      document.getElementById("menu-content").style.display = "none";
       document.getElementById("score-table").style.display = "none";
       document.getElementById("highest-score-container").style.display =
         "none";
@@ -208,13 +258,16 @@
 
       // Show the selected content section
       if (content === "table") {
+        document.getElementById("menu-content").style.display = "flex";
         document.getElementById("score-table").style.display = "table";
         showScoresInsideTable();
       } else if (content === "highest") {
+        document.getElementById("menu-content").style.display = "flex";
         document.getElementById("highest-score-container").style.display =
           "block";
         showHighScore();
       } else if (content === "clear") {
+        document.getElementById("menu-content").style.display = "flex";
         document.getElementById("clear-message").style.display = "block";
         clearScoreMessage();
       }
