@@ -79,42 +79,48 @@ window.onload = function startCountdown() {
       }, 1000);
     }
   }, 1000);
-
-}
+};
 // start the game
 function startGame() {
+<<<<<<< HEAD
   start_counter_sound.addEventListener('ended', (event) => {
     anim_id = requestAnimationFrame(repeat);
     engine_start_sound.play();
     engine_start_sound.addEventListener('ended', () => {
       engine_high_sound.play();
       engine_high_sound.addEventListener('ended', () => {
+=======
+  start_counter_sound.addEventListener("ended", (event) => {
+    anim_id = requestAnimationFrame(repeat);
+    engine_start_sound.play();
+    engine_start_sound.addEventListener("ended", () => {
+      engine_high_sound.play();
+      engine_high_sound.addEventListener("ended", () => {
+>>>>>>> refs/remotes/origin/main
         engine_low_sound.play();
       });
     });
   });
 }
-// // start the game
-
 
 /********************************************\\ Car Movements Keys //********************************************/
 
-//keyboard EventListener  using arrow keys
+//keyboard EventListener  using arrow and wsda keys
 // while you press down the key
 document.addEventListener("keydown", function (e) {
-  //check if isnot  game over so the car can move
+  //check if is not  game over so the car can move
   if (!game_over) {
     let key = e.key;
-    if (key === "ArrowLeft" && !move_left) {
+    if ((key === "ArrowLeft" || key === "a") && !move_left) {
       //update car move to left
       move_left = requestAnimationFrame(ArrowLeft);
-    } else if (key === "ArrowRight" && !move_right) {
+    } else if ((key === "ArrowRight" || key === "d") && !move_right) {
       //update car move to right
       move_right = requestAnimationFrame(ArrowRight);
-    } else if (key === "ArrowUp" && !move_up) {
+    } else if ((key === "ArrowUp" || key === "w") && !move_up) {
       //update car move to up
       move_up = requestAnimationFrame(ArrowUp);
-    } else if (key === "ArrowDown" && !move_down) {
+    } else if ((key === "ArrowDown" || key === "s") && !move_down) {
       //update car move to down
       move_down = requestAnimationFrame(ArrowDown);
     }
@@ -125,19 +131,19 @@ document.addEventListener("keydown", function (e) {
 document.addEventListener("keyup", function (e) {
   if (!game_over) {
     let key = e.key;
-    if (key === "ArrowLeft") {
+    if (key === "ArrowLeft" ||key === "a" ) {
       // prevent car to move to left
       cancelAnimationFrame(move_left);
       move_left = false;
-    } else if (key === "ArrowRight") {
+    } else if (key === "ArrowRight" || key === "d") {
       // prevent car to move to right
       cancelAnimationFrame(move_right);
       move_right = false;
-    } else if (key === "ArrowUp") {
+    } else if (key === "ArrowUp" || key === "w") {
       // prevent car to move to up
       cancelAnimationFrame(move_up);
       move_up = false;
-    } else if (key === "ArrowDown") {
+    } else if (key === "ArrowDown" || key === "s") {
       // prevent car to move to down
       cancelAnimationFrame(move_down);
       move_down = false;
@@ -188,12 +194,25 @@ function ArrowRight() {
 // Move the car upward
 function ArrowUp() {
   // Check if the game is not over and the car is above a certain top threshold
+<<<<<<< HEAD
   if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) > 10) {
     // Calculate the new top position
     const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) - 5;
 
     // Set the new top position to the car's style
     car.style.top = newTop + 'px';
+=======
+  if (
+    game_over === false &&
+    parseInt(window.getComputedStyle(car).getPropertyValue("top")) > 10
+  ) {
+    // Calculate the new top position
+    const newTop =
+      parseInt(window.getComputedStyle(car).getPropertyValue("top")) - 5;
+
+    // Set the new top position to the car's style
+    car.style.top = newTop + "px";
+>>>>>>> refs/remotes/origin/main
 
     // Request the next animation frame for continuous movement
     move_up = requestAnimationFrame(ArrowUp);
@@ -203,12 +222,26 @@ function ArrowUp() {
 // Move the car downward
 function ArrowDown() {
   // Check if the game is not over and the car is below a certain bottom threshold
+<<<<<<< HEAD
   if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) < container_height - car_height - 5) {
     // Calculate the new top position
     const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) + 5;
 
     // Set the new top position to the car's style
     car.style.top = newTop + 'px';
+=======
+  if (
+    game_over === false &&
+    parseInt(window.getComputedStyle(car).getPropertyValue("top")) <
+      container_height - car_height - 5
+  ) {
+    // Calculate the new top position
+    const newTop =
+      parseInt(window.getComputedStyle(car).getPropertyValue("top")) + 5;
+
+    // Set the new top position to the car's style
+    car.style.top = newTop + "px";
+>>>>>>> refs/remotes/origin/main
 
     // Request the next animation frame for continuous movement
     move_down = requestAnimationFrame(ArrowDown);
@@ -249,6 +282,7 @@ function repeat() {
       line_speed++;
     }
 
+<<<<<<< HEAD
 
     // ============== end of the game
 
@@ -286,6 +320,15 @@ function repeat() {
       parseInt(window.getComputedStyle(car_1).getPropertyValue("top")) > container_height ||
       parseInt(window.getComputedStyle(car_2).getPropertyValue("top")) > container_height ||
       parseInt(window.getComputedStyle(car_3).getPropertyValue("top")) > container_height
+=======
+    if (
+      parseInt(window.getComputedStyle(car_1).getPropertyValue("top")) >
+        container_height ||
+      parseInt(window.getComputedStyle(car_2).getPropertyValue("top")) >
+        container_height ||
+      parseInt(window.getComputedStyle(car_3).getPropertyValue("top")) >
+        container_height
+>>>>>>> refs/remotes/origin/main
     ) {
       car_passed_sound.play();
     }
@@ -378,7 +421,14 @@ function stopTheGame() {
   cancelAnimationFrame(move_left);
 
   // display the restart div.
+
   restart_div.style.display = "block";
+
+  restart_btn.innerHTML += `
+  <p id="cur-score">Score: ${score.innerText}</p>
+  <p id="high-score">High Score: ${getHighScore()}</p>
+  <small class="small_text">(Press Enter)</small>
+  `;
   restart_btn.focus();
 }
 
@@ -482,7 +532,12 @@ function showScoresInsideTable() {
 // 2. Handling the Clear Scores Button
 function clearScoresInsideTable() {
   clearScores();
+<<<<<<< HEAD
   document.getElementById("clear-message").innerText = "Scores Cleared Successfully !";
+=======
+  document.getElementById("clear-message").innerText =
+    "Scores Cleared Successfully !";
+>>>>>>> refs/remotes/origin/main
 }
 function clearScoreMessage() {
   //confirm the user's intention to clear the scores.
