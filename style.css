@@ -167,3 +167,23 @@ img {
     margin-top: 30%;
     letter-spacing: 4px; /* Increase the letter spacing for a more pixelated effect */
   }
+
+
+#end_of_game {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 1s ease-in-out; /* Add a transition for the opacity property */
+}
+
+/* Add a class to trigger the slide down effect */
+#end_of_game.active {
+    opacity: 1;
+}
+
+#game_end_img {
+    width: 100%;
+    height: 100%;
+}
+
