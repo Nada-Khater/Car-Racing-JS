@@ -429,7 +429,7 @@ function stopTheGame() {
   restart_btn.innerHTML += `
   <p id="cur-score">Score: ${score.innerText}</p>
   <p id="high-score">High Score: ${getHighScore()}</p>
-  <small class="small_text">(Press Enter)</small>
+  <small class="small_text"> << Press Enter >> </small>
   `;
   restart_btn.focus();
 }
@@ -601,7 +601,7 @@ function Mute() {
 // Update mute button text
 function updateMuteButton() {
   const muteBtn = document.getElementById("muteBtn");
-  muteBtn.innerText = isMuted ? " 🔇 " : " 🔊 ";
+  muteBtn.innerText = isMuted ? "🔇" : "🔊";
 }
 
 updateMuteButton();
