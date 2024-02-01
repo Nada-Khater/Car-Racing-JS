@@ -1,7 +1,7 @@
 // store the request id of requestAnimationFrame function
 let anim_id;
 
-// assign DOM objects to letiables
+// assign DOM objects to variables
 const container = document.getElementById("container"),
   car = document.getElementById("car"),
   car_1 = document.getElementById("car_1"),
@@ -93,6 +93,47 @@ function startGame() {
     });
   });
 }
+/********************************************\\ Car Movements for touch screens //********************************************/
+
+// start animation of car motion on touch events start
+document.addEventListener('touchstart',function(e){
+  if(!game_over)
+  {
+    if(e.target.id == container.id )
+    {
+      // touch location on x axis
+      let touch_x = e.touches[0].clientX; 
+      // car middle line x axis location
+      let car_x = parseFloat(getComputedStyle(car).left) + container_left + car_width/2;
+      
+      // Compare car position and touch location in x direction
+      if(touch_x > car_x)
+      {
+        move_right = requestAnimationFrame(ArrowRight);
+      }
+      else if (touch_x < car_x)
+      {
+        move_left = requestAnimationFrame(ArrowLeft);
+      }
+    }
+  }
+});
+// stop animation of car motion on touch events end
+document.addEventListener('touchend',function(e){
+    if(!game_over)
+    {
+      if(move_right)
+      {
+        cancelAnimationFrame(move_right);
+        move_right = false;
+      }
+      else if (move_left)
+      {
+        cancelAnimationFrame(move_left);
+        move_left = false;
+      }
+    }
+});
 
 /********************************************\\ Car Movements Keys //********************************************/
 
