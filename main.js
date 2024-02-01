@@ -56,8 +56,8 @@ let game_over = false,
   move_up = false,
   move_down = false;
 
-  initial_level_score = 100;
-  stop_score_increasing = false;
+initial_level_score = 100;
+stop_score_increasing = false;
 ;
 
 // 321 go counter
@@ -82,21 +82,12 @@ window.onload = function startCountdown() {
 };
 // start the game
 function startGame() {
-<<<<<<< HEAD
   start_counter_sound.addEventListener('ended', (event) => {
     anim_id = requestAnimationFrame(repeat);
     engine_start_sound.play();
     engine_start_sound.addEventListener('ended', () => {
       engine_high_sound.play();
       engine_high_sound.addEventListener('ended', () => {
-=======
-  start_counter_sound.addEventListener("ended", (event) => {
-    anim_id = requestAnimationFrame(repeat);
-    engine_start_sound.play();
-    engine_start_sound.addEventListener("ended", () => {
-      engine_high_sound.play();
-      engine_high_sound.addEventListener("ended", () => {
->>>>>>> refs/remotes/origin/main
         engine_low_sound.play();
       });
     });
@@ -131,7 +122,7 @@ document.addEventListener("keydown", function (e) {
 document.addEventListener("keyup", function (e) {
   if (!game_over) {
     let key = e.key;
-    if (key === "ArrowLeft" ||key === "a" ) {
+    if (key === "ArrowLeft" || key === "a") {
       // prevent car to move to left
       cancelAnimationFrame(move_left);
       move_left = false;
@@ -194,25 +185,12 @@ function ArrowRight() {
 // Move the car upward
 function ArrowUp() {
   // Check if the game is not over and the car is above a certain top threshold
-<<<<<<< HEAD
   if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) > 10) {
     // Calculate the new top position
     const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) - 5;
 
     // Set the new top position to the car's style
     car.style.top = newTop + 'px';
-=======
-  if (
-    game_over === false &&
-    parseInt(window.getComputedStyle(car).getPropertyValue("top")) > 10
-  ) {
-    // Calculate the new top position
-    const newTop =
-      parseInt(window.getComputedStyle(car).getPropertyValue("top")) - 5;
-
-    // Set the new top position to the car's style
-    car.style.top = newTop + "px";
->>>>>>> refs/remotes/origin/main
 
     // Request the next animation frame for continuous movement
     move_up = requestAnimationFrame(ArrowUp);
@@ -222,26 +200,12 @@ function ArrowUp() {
 // Move the car downward
 function ArrowDown() {
   // Check if the game is not over and the car is below a certain bottom threshold
-<<<<<<< HEAD
   if (game_over === false && parseInt(window.getComputedStyle(car).getPropertyValue('top')) < container_height - car_height - 5) {
     // Calculate the new top position
     const newTop = parseInt(window.getComputedStyle(car).getPropertyValue('top')) + 5;
 
     // Set the new top position to the car's style
     car.style.top = newTop + 'px';
-=======
-  if (
-    game_over === false &&
-    parseInt(window.getComputedStyle(car).getPropertyValue("top")) <
-      container_height - car_height - 5
-  ) {
-    // Calculate the new top position
-    const newTop =
-      parseInt(window.getComputedStyle(car).getPropertyValue("top")) + 5;
-
-    // Set the new top position to the car's style
-    car.style.top = newTop + "px";
->>>>>>> refs/remotes/origin/main
 
     // Request the next animation frame for continuous movement
     move_down = requestAnimationFrame(ArrowDown);
@@ -249,6 +213,13 @@ function ArrowDown() {
 }
 
 function repeat() {
+
+  // display level score
+  if (!stop_score_increasing) {
+    let level_score = JSON.parse(localStorage.getItem("CurrentLevelScore")) || initial_level_score;
+    document.getElementById("level_score").innerText = level_score;
+  }
+
   // check if the player does'nt lose the game
   if (game_over === false) {
     // check collision between the player car and the three coming cars
@@ -282,7 +253,6 @@ function repeat() {
       line_speed++;
     }
 
-<<<<<<< HEAD
 
     // ============== end of the game
 
@@ -320,15 +290,6 @@ function repeat() {
       parseInt(window.getComputedStyle(car_1).getPropertyValue("top")) > container_height ||
       parseInt(window.getComputedStyle(car_2).getPropertyValue("top")) > container_height ||
       parseInt(window.getComputedStyle(car_3).getPropertyValue("top")) > container_height
-=======
-    if (
-      parseInt(window.getComputedStyle(car_1).getPropertyValue("top")) >
-        container_height ||
-      parseInt(window.getComputedStyle(car_2).getPropertyValue("top")) >
-        container_height ||
-      parseInt(window.getComputedStyle(car_3).getPropertyValue("top")) >
-        container_height
->>>>>>> refs/remotes/origin/main
     ) {
       car_passed_sound.play();
     }
@@ -532,12 +493,7 @@ function showScoresInsideTable() {
 // 2. Handling the Clear Scores Button
 function clearScoresInsideTable() {
   clearScores();
-<<<<<<< HEAD
   document.getElementById("clear-message").innerText = "Scores Cleared Successfully !";
-=======
-  document.getElementById("clear-message").innerText =
-    "Scores Cleared Successfully !";
->>>>>>> refs/remotes/origin/main
 }
 function clearScoreMessage() {
   //confirm the user's intention to clear the scores.
