@@ -17,6 +17,27 @@ const container = document.getElementById("container"),
   restart_btn = document.getElementById("restart"),
   score = document.getElementById("score");
 
+  // declare sound audo objects
+const start_counter_sound = new Audio("./assets/sounds/start_counter.wav");
+const engine_start_sound = new Audio("./assets/sounds/engine_start_try.wav");
+const engine_high_sound = new Audio("./assets/sounds/engine_low_try.wav");
+const engine_low_sound = new Audio("./assets/sounds/engine_low_try.wav");
+const car_passed_sound = new Audio("./assets/sounds/pass_try.wav");
+const crash_sound = new Audio("./assets/sounds/loose.wav");
+
+//some other declarations
+let game_over = false,
+  score_counter = 1,
+  speed = 5,
+  line_speed = 2,
+  move_right = false,
+  move_left = false,
+  move_up = false,
+  move_down = false;
+
+initial_level_score = 100;
+stop_score_increasing = false;
+
 //saving some initial setup
 let container_left = parseInt(
   window.getComputedStyle(container).getPropertyValue("left")
@@ -38,37 +59,15 @@ let container_left = parseInt(
     window.getComputedStyle(line_6).getPropertyValue("width")
   );
 
-// declare sound audo objects
-const start_counter_sound = new Audio("./assets/sounds/start_counter.wav");
-const engine_start_sound = new Audio("./assets/sounds/engine_start.wav");
-const engine_high_sound = new Audio("./assets/sounds/engine_high.wav");
-const engine_low_sound = new Audio("./assets/sounds/engine_low.wav");
-const car_passed_sound = new Audio("./assets/sounds/car_passed.wav");
-const crash_sound = new Audio("./assets/sounds/crash.wav");
-
-//some other declarations
-let game_over = false,
-  score_counter = 1,
-  speed = 5,
-  line_speed = 2,
-  move_right = false,
-  move_left = false,
-  move_up = false,
-  move_down = false;
-
-initial_level_score = 100;
-stop_score_increasing = false;
-;
+/*****************************Starting The Game*********************************************/
 
 // Function to select the car
 function selectCar(carImage) {
-  // Hide the car selection div
+
   document.getElementById("carSelection").style.display = "none";
   
-  // Set the chosen car's image to the game screen
   document.getElementById("car").innerHTML = `<img src="assets/images/${carImage}" />`;
   
-  // Start count down
   startCountdown()
 }
 
@@ -92,6 +91,7 @@ function startCountdown() {
     }
   }, 1000);
 };
+
 // start the game
 function startGame() {
   start_counter_sound.addEventListener('ended', (event) => {
@@ -105,6 +105,7 @@ function startGame() {
     });
   });
 }
+
 /********************************************\\ Car Movements for touch screens //********************************************/
 
 // start animation of car motion on touch events start
@@ -130,6 +131,7 @@ document.addEventListener('touchstart',function(e){
     }
   }
 });
+
 // stop animation of car motion on touch events end
 document.addEventListener('touchend',function(e){
     if(!game_over)
@@ -147,7 +149,7 @@ document.addEventListener('touchend',function(e){
     }
 });
 
-/********************************************\\ Car Movements Keys //********************************************/
+/********************************************\\ Car Movements for keyboard //********************************************/
 
 //keyboard EventListener  using arrow and wsda keys
 // while you press down the key
@@ -158,13 +160,16 @@ document.addEventListener("keydown", function (e) {
     if ((key === "ArrowLeft" || key === "a") && !move_left) {
       //update car move to left
       move_left = requestAnimationFrame(ArrowLeft);
-    } else if ((key === "ArrowRight" || key === "d") && !move_right) {
+    } 
+    else if ((key === "ArrowRight" || key === "d") && !move_right) {
       //update car move to right
       move_right = requestAnimationFrame(ArrowRight);
-    } else if ((key === "ArrowUp" || key === "w") && !move_up) {
+    } 
+    else if ((key === "ArrowUp" || key === "w") && !move_up) {
       //update car move to up
       move_up = requestAnimationFrame(ArrowUp);
-    } else if ((key === "ArrowDown" || key === "s") && !move_down) {
+    } 
+    else if ((key === "ArrowDown" || key === "s") && !move_down) {
       //update car move to down
       move_down = requestAnimationFrame(ArrowDown);
     }
@@ -179,15 +184,18 @@ document.addEventListener("keyup", function (e) {
       // prevent car to move to left
       cancelAnimationFrame(move_left);
       move_left = false;
-    } else if (key === "ArrowRight" || key === "d") {
+    } 
+    else if (key === "ArrowRight" || key === "d") {
       // prevent car to move to right
       cancelAnimationFrame(move_right);
       move_right = false;
-    } else if (key === "ArrowUp" || key === "w") {
+    }
+     else if (key === "ArrowUp" || key === "w") {
       // prevent car to move to up
       cancelAnimationFrame(move_up);
       move_up = false;
-    } else if (key === "ArrowDown" || key === "s") {
+    }
+     else if (key === "ArrowDown" || key === "s") {
       // prevent car to move to down
       cancelAnimationFrame(move_down);
       move_down = false;
