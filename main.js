@@ -362,6 +362,7 @@ function repeat() {
     line_down(line_2);
     line_down(line_3);
     line_down(line_4);
+    kerbs_down();
 
     // recursive call to repaint
     anim_id = requestAnimationFrame(repeat);
@@ -393,6 +394,22 @@ function line_down(line) {
     line_current_top = -200;
   }
   line.style.top = `${line_current_top + line_speed}px`;
+}
+
+function kerbs_down()
+{
+  let kerb_current_top = parseInt(
+    window.getComputedStyle(line_5).getPropertyValue("top")
+  );
+  if(kerb_current_top >= 0)
+  {
+    line_5.style.top = `-100%`;
+    line_6.style.top = `-100%`;
+  }
+  else {
+    line_5.style.top = `${kerb_current_top + line_speed}px`;
+    line_6.style.top = `${kerb_current_top + line_speed}px`;
+  }
 }
 
 // =======================================
