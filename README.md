@@ -4,7 +4,9 @@
 ### How to Play
 
 Objective: Your goal is to avoid oncoming cars and survive as long as possible.
+
 Controls: Use the arrow keys (←, →) or swipe left/right to move your car.
+
 Scoring: The longer you survive, the higher your score. Try to beat your own high score!
 
 ### Features
