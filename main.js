@@ -17,14 +17,15 @@ const container = document.getElementById("container"),
   restart_btn = document.getElementById("restart"),
   score = document.getElementById("score");
 
-  // declare sound audo objects
+ // declare sound audo objects
 const start_counter_sound = new Audio("./assets/sounds/start_counter.wav");
 const engine_start_sound = new Audio("./assets/sounds/engine_start_try.wav");
 const engine_high_sound = new Audio("./assets/sounds/engine_low_try.wav");
 const engine_low_sound = new Audio("./assets/sounds/engine_low_try.wav");
-engine_low_sound.loop = true;
 const car_passed_sound = new Audio("./assets/sounds/pass_try.wav");
-const crash_sound = new Audio("./assets/sounds/loose.wav");
+const crash_sound = new Audio("./assets/sounds/crash_try.wav");
+const final_sound = new Audio("./assets/sounds/bravo 3lek.wav");
+engine_low_sound.loop = true;
 
 //some other declarations
 let game_over = false,
@@ -44,20 +45,20 @@ let container_left = parseInt(
 ),
   container_width = parseInt(
     window.getComputedStyle(container).getPropertyValue("width")
-  ),
+),
   container_height = parseInt(
     window.getComputedStyle(container).getPropertyValue("height")
-  ),
+),
   car_width = parseInt(window.getComputedStyle(car).getPropertyValue("width")),
   car_height = parseInt(
     window.getComputedStyle(car).getPropertyValue("height")
-  ),
+),
   line_width_l = parseInt(
     window.getComputedStyle(line_5).getPropertyValue("width")
-  ),
+),
   line_width_r = parseInt(
     window.getComputedStyle(line_6).getPropertyValue("width")
-  );
+);
 
 /*****************************Starting The Game*********************************************/
 
@@ -319,7 +320,7 @@ function repeat() {
     let level_score = JSON.parse(localStorage.getItem("CurrentLevelScore")) || initial_level_score;
 
     if (parseInt(score.innerText) == level_score) {
-
+      
       // update the upcoming level score.
       localStorage.setItem("CurrentLevelScore", JSON.stringify(level_score * 2));
 
@@ -330,6 +331,10 @@ function repeat() {
       end_of_game.style.display = "block";
       setTimeout(function () {
         document.getElementById('end_of_game').classList.add('active');
+
+        //play the win sound
+        final_sound.play();
+
       }, 1000);
 
       // pause engine and car passing sound.
