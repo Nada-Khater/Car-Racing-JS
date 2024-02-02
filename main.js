@@ -22,6 +22,7 @@ const start_counter_sound = new Audio("./assets/sounds/start_counter.wav");
 const engine_start_sound = new Audio("./assets/sounds/engine_start_try.wav");
 const engine_high_sound = new Audio("./assets/sounds/engine_low_try.wav");
 const engine_low_sound = new Audio("./assets/sounds/engine_low_try.wav");
+engine_low_sound.loop = true;
 const car_passed_sound = new Audio("./assets/sounds/pass_try.wav");
 const crash_sound = new Audio("./assets/sounds/loose.wav");
 
@@ -33,10 +34,9 @@ let game_over = false,
   move_right = false,
   move_left = false,
   move_up = false,
-  move_down = false;
-
-initial_level_score = 100;
-stop_score_increasing = false;
+  move_down = false,
+  initial_level_score = 100,
+  stop_score_increasing = false;
 
 //saving some initial setup
 let container_left = parseInt(
@@ -306,7 +306,6 @@ function repeat() {
     // increase the shown score with 1 point every 20 animation refres
     if (score_counter % 20 == 0 && !stop_score_increasing) {
       score.innerText = parseInt(score.innerText) + 1;
-      engine_low_sound.currentTime = 0;
     }
     // accelerate the movement every 500 animation refresh
     if (score_counter % 500 == 0) {
