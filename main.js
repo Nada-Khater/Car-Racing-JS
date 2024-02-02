@@ -106,7 +106,18 @@ function startGame() {
     });
   });
 }
+/********************************************\\ Car Movements Using Touchpad //********************************************/
 
+document.addEventListener("wheel",function(e){
+    // Check if the wheel is scrolled to the right
+    if (e.deltaX < 0) {
+      move_right = requestAnimationFrame(()=>ArrowRight(false));
+    } 
+    // Check if the wheel is scrolled to the left
+    else if (e.deltaX > 0) {
+      move_left = requestAnimationFrame(()=>ArrowLeft(false))
+    } 
+})
 /********************************************\\ Car Movements for touch screens //********************************************/
 
 // start animation of car motion on touch events start
@@ -205,7 +216,7 @@ document.addEventListener("keyup", function (e) {
 });
 
 // Move the car to the left
-function ArrowLeft() {
+function ArrowLeft(repeat = true) {
   // Check if the game is not over and the car is within the left boundary
   if (
     game_over === false &&
@@ -220,12 +231,12 @@ function ArrowLeft() {
     car.style.left = newLeft + "px";
 
     // Request the next animation frame for continuous movement
-    move_left = requestAnimationFrame(ArrowLeft);
+    repeat && (move_left = requestAnimationFrame(ArrowLeft));
   }
 }
 
 // Move the car to the right
-function ArrowRight() {
+function ArrowRight(repeat = true) {
   // Check if the game is not over and the car is within the right boundary
   if (
     game_over === false &&
@@ -240,7 +251,7 @@ function ArrowRight() {
     car.style.left = newLeft + "px";
 
     // Request the next animation frame for continuous movement
-    move_right = requestAnimationFrame(ArrowRight);
+    repeat && (move_right = requestAnimationFrame(ArrowRight));
   }
 }
 
