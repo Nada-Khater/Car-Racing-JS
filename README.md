@@ -10,8 +10,11 @@ Scoring: The longer you survive, the higher your score. Try to beat your own hig
 ### Features
 
 Increasing Difficulty: As you progress, the speed and density of oncoming cars will increase, making the game more challenging.
+
 High Score: Keep track of your highest score and challenge yourself to beat it.
+
 Progressive Levels: Challenge yourself to surpass the target score of each level, advancing to the finish line and unlocking progressively more challenging levels.
+
 Car Variety: Select your preferred car to race with before starting the competition.
 
 ### Screenshots
