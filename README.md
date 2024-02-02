@@ -11,18 +11,33 @@ Scoring: The longer you survive, the higher your score. Try to beat your own hig
 
 Increasing Difficulty: As you progress, the speed and density of oncoming cars will increase, making the game more challenging.
 High Score: Keep track of your highest score and challenge yourself to beat it.
-Endless Gameplay: The game continues until you collide with an oncoming car. There's no end – just how long can you survive?
-    
+Progressive Levels: Challenge yourself to surpass the target score of each level, advancing to the finish line and unlocking progressively more challenging levels.
+Car Variety: Select your preferred car to race with before starting the competition.
+
 ### Screenshots
+
+Choose your car before you start.
+
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/4ccd104e-286c-4171-99b8-52f0dc82f06a)
 
 Dodge the oncoming cars to survive and earn points.
     
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/0b3c5857-b499-47de-a8ff-57bb328ef68a)
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/b7efbc6c-9d43-462a-b7a1-3289cab351fb)
+
+
+Try to beat the target score.
+
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/68353f6d-396c-41a8-a44e-ae6ed4bea19f)
+
       
 Keep track of your highest score and aim to beat it.
-    
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/18f435d9-97fa-4633-b5c9-4087e85c6982)
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/47b94270-d6d3-44d2-b57a-fcbd6dc5768c)
+
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/cb0bfe87-9f1d-4225-982d-398ef31a14ac)
+
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/eff56dd7-2ad1-474b-a6a2-632252e31928)
+
+![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/7d1cdd73-a180-415d-99e9-5fc285a1bea9)
+
  
 
 
