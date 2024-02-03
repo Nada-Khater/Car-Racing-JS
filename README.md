@@ -1,13 +1,15 @@
 # Car-Racing-JS / Welcome to the Car Dodge Game! Dodge the oncoming cars and aim for the highest score. Challenge yourself and see how long you can survive on the road!
 
+## Getting Started
+- Game is available at:  https://nada-khater.github.io/Car-Racing-JS/
+
 ## Overview
 - **Objective:** Your goal is to avoid oncoming cars and survive as long as possible.
-
 - **Scoring:** The longer you survive, the higher your score. Try to beat your own high score!
 
 ## Controls
 - **For Desktop:**
-    - Use the arrow keys (←, →) or (W, A, S, D keys) to move the car left, right, up, or down.
+    - Use the arrow keys (←, →), touchpad or (W, A, S, D keys) to move the car left, right, up, or down.
 
 - **For Touchscreen Devices:**
     - Swipe left or right on the screen to move the car accordingly.
@@ -54,18 +56,15 @@
 - **Instructions:**
     - Basic instructions on how to play the game are provided in the game instructions.
 
-## Getting Started
-- Game is available at:  https://nada-khater.github.io/Car-Racing-JS/
-
 ## Development
 - This game is built using HTML, CSS, and JavaScript.
 
 ## Team Members
-- Mina saeid Basta.
-- Nada Khater Abdu.
-- Sherry Osama Mohamed.
-- Hebatullah Adel AbdElgaber.
-- Mohamed Tharwat Al Metwally.
+- [Mina saeed Basta](https://github.com/minasaeedbasta).
+- [Nada Khater Abdu](https://github.com/Nada-Khater).
+- [Sherry Osama Mohamed](https://github.com/sh-osama-sami).
+- [Hebatullah Adel AbdElgaber](https://github.com/heba120).
+- [Mohamed Tharwat Al Metwally](https://github.com/MohamedTharwatElMetwally).
 
 ## Screenshots
 - Game main menu
