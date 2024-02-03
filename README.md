@@ -68,26 +68,18 @@
 - Mohamed Tharwat Al Metwally.
 
 ## Screenshots
-Choose your car before you start.
+- Game main menu
+ ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/75952748/a0ec3799-ef53-4315-864c-de21607249c1)
 
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/4ccd104e-286c-4171-99b8-52f0dc82f06a)
+- Choose your car before you start
+  ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/75952748/6f990d0a-a205-41bb-b259-87ce419c2391)
 
-Dodge the oncoming cars to survive and earn points.
-    
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/b7efbc6c-9d43-462a-b7a1-3289cab351fb)
+- Dodge the oncoming cars to survive and earn points.
+  ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/75952748/ee282744-74eb-4520-9ed8-4511989216a7)
+       
+- Keep track of your highest score and aim to beat it.
+  ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/75952748/926a70b0-28f6-404f-8d55-ea119e4d7a00)
 
-
-Try to beat the target score.
-
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/68353f6d-396c-41a8-a44e-ae6ed4bea19f)
-
-      
-Keep track of your highest score and aim to beat it.
-
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/cb0bfe87-9f1d-4225-982d-398ef31a14ac)
-
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/eff56dd7-2ad1-474b-a6a2-632252e31928)
-
-![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/7d1cdd73-a180-415d-99e9-5fc285a1bea9)
-
-    
+- Score history and high score menu
+  ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/eff56dd7-2ad1-474b-a6a2-632252e31928)
+  ![image](https://github.com/Nada-Khater/Car-Racing-JS/assets/85364511/7d1cdd73-a180-415d-99e9-5fc285a1bea9)
