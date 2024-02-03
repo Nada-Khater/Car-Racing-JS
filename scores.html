@@ -1,278 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+    />
+    <link rel="stylesheet" href="css/score.css" />
+    <title>Score History</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
-  <title>Score History</title>
-
-  <style>
-
-    body {
-      font-family: "Luckiest Guy";
-      background-image: url("./assets/images/black-sports-car-with-grunge-600nw-671302684.webp");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: whitesmoke;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    tr:hover {
-      background-color: #f5f5f5;
-    }
-
-    div {
-      width: 45%;
-      margin: auto;
-    }
-
-    #menu-content{
-      text-align: center;
-      width: 35rem;
-      max-width: 800px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(5, 5, 5, 0.8);
-      margin-right: 12rem;
-      border-radius: 2rem;
-      border: 1px solid #7b8320;
-      box-shadow: 0 0 10px #ccd477;
-    }
-
-    .menu-container {
-      text-align: center;
-      width: 25rem;
-      max-width: 800px;
-      position: absolute;
-      top: 10%;
-      left: 8%; 
-    }
-
-    .game-title {
-      margin-bottom: 50px;
-      margin-top: 3rem;
-      font-size: 6rem;
-      font-family: 'Luckiest Guy';
-      color: whitesmoke;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-shadow: 0px -6px 0 #5c6219,
-          0px -6px 0 #212121,
-          0px 6px 0 #5c6219,
-          0px 6px 0 #212121,
-          -6px 0px 0 #5c6219,
-          6px 0px 0 #5c6219,
-          -6px 0px 0 #5c6219,
-          0 19px 1px rgba(0, 0, 0, .1),
-          0 0 6px rgba(0, 0, 0, .1),
-          0 6px 3px rgba(0, 0, 0, .3),
-          0 12px 6px rgba(0, 0, 0, .2),
-          0 18px 18px rgba(0, 0, 0, .25),
-          0 24px 24px rgba(0, 0, 0, .2),
-          0 36px 36px rgba(0, 0, 0, .15);
-    }
-
-    .menu-list li :hover {
-            background: linear-gradient(to left, #7b8320, #2e2c2c);
-        }
-
-    .menu-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu-list li {
-      margin: 10px 0;
-    }
-
-    #confirm-clear,
-    .menu-list a {
-      text-decoration: none;
-      display: inline-block;
-      max-width: 300px;
-      border: none;
-      cursor: pointer;
-      color: whitesmoke;
-      font-size: 1.55rem;
-      padding: 1.2rem 2.2rem;
-      border-radius: 1rem;
-      margin-bottom: 0.3rem;
-      font-family: 'Luckiest Guy';
-      box-shadow: 0 0 20px #58758b53;
-      transition: background 0.3s ease;
-      background: linear-gradient(to right, #1d1c1c, #5c6219);
-    }
-
-    .menu-list a:hover {
-      background-color: #4e4c4c;
-    }
-
-    #confirm-clear {
-      text-decoration: none;
-      font-size: 15px;
-      padding: 10px 20px;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    p {
-      font-size: 25px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th,
-    td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    tr:hover {
-      background-color: #f5f5f549;
-    }
-
-    #highest-score-container {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 30px;
-      margin-bottom: 1rem;
-    }
-
-    #score-history-container {
-      width: 400px;
-      max-height: 300px;
-      overflow-y: auto;
-    }
     
-    #score-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+  </head>
 
-    #clear-message {
-      text-align: center;
-    }
-
-    #content-title {
-      background-color: transparent;
-      text-shadow: 0px 2px 28px #5c6219,
-                   0px -6px 0 #212121;
-      border: 2px solid #ccd4775e;
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-  </style>
-</head>
-
-<body>
-  <div class="menu-container">
-    <h1 class="game-title" id="menu-title">Menu</h1>
-    <ul class="menu-list">
-      <li><a href="#" id="score-history">Score History</a></li>
-      <li><a href="#" id="highest-score">Highest Score</a></li>
-      <li><a href="#" id="clear-history">Clear History</a></li>
-      <li><a href="#" id="back">Back</a></li>
-    </ul>
-  </div>
-
-  <div id="menu-content">
-    <h1 id="content-title"></h1>
-    <div id="score-history-container">
-      <table id="score-table"></table>
+  <body>
+    <div class="menu-container">
+      <h1 class="game-title" id="menu-title">Menu</h1>
+      <ul class="menu-list">
+        <li><a href="#" id="score-history">Score History</a></li>
+        <li><a href="#" id="highest-score">Highest Score</a></li>
+        <li><a href="#" id="clear-history">Clear History</a></li>
+        <li><a href="#" id="back">Back</a></li>
+      </ul>
     </div>
 
-    <div id="highest-score-container"></div>
+    <div id="menu-content">
+      <h1 id="content-title"></h1>
+      <div id="score-history-container">
+        <table id="score-table"></table>
+      </div>
 
-    <div id="clear-message">
+      <div id="highest-score-container"></div>
 
+      <div id="clear-message"></div>
     </div>
-  </div>
-  <script src="./main.js"></script>
-  <script>
-    document
-      .getElementById("score-history")
-      .addEventListener("click", function () {
-        updateContent("Score History", "table");
-      });
-
-    document
-      .getElementById("highest-score")
-      .addEventListener("click", function () {
-        updateContent("Highest Score", "highest");
-      });
-
-    document
-      .getElementById("clear-history")
-      .addEventListener("click", function () {
-        updateContent("Clear History", "clear");
-      });
-
-    document
-      .getElementById("back")
-      .addEventListener("click", function () {
-        location.href = "index.html";
-      });
-
-    function updateContent(title, content) {
-      document.getElementById("content-title").innerText = title;
-
-      // Hide all content sections
-      document.getElementById("menu-content").style.display = "none";
-      document.getElementById("score-table").style.display = "none";
-      document.getElementById("highest-score-container").style.display =
-        "none";
-      document.getElementById("clear-message").style.display = "none";
-
-      // Show the selected content section
-      if (content === "table") {
-        document.getElementById("menu-content").style.display = "flex";
-        document.getElementById("score-table").style.display = "table";
-        showScoresInsideTable();
-      } else if (content === "highest") {
-        document.getElementById("menu-content").style.display = "flex";
-        document.getElementById("highest-score-container").style.display =
-          "block";
-        showHighScore();
-      } else if (content === "clear") {
-        document.getElementById("menu-content").style.display = "flex";
-        document.getElementById("clear-message").style.display = "block";
-        clearScoreMessage();
-      }
-    }
-  </script>
-</body>
-
+    <script src="./js/scoreStorage.js"></script>
+    <script src="./js/score.js"></script>  
+  </body>
 </html>
